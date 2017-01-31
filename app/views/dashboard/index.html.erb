@@ -1,0 +1,6 @@
+</h1> Welcome to apiCurious, <%= current_user.username %></h1> <%= image_tag(current_user.avatar, class: ".col-xs-6 .col-md-4") %>
+
+<h2> User Information : </h2>
+<h4> Number of followers: <%=current_user.followers %>
+<h4> Number of people following: <%=current_user.following %>
+<h4> <%= link_to "View Repo", current_user.repo %>
