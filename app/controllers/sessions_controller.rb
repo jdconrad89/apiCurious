@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   def create
 
-
     @response = Faraday.post("https://github.com/login/oauth/access_token?client_id=#{ENV["CLIENT_ID"]}&client_secret=#{ENV["CLIENT_SECRET"]}&code=#{params["code"]}")
     token = @response.body.split(/\W+/)[1]
 

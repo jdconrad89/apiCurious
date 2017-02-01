@@ -1,0 +1,20 @@
+<div class="container">
+<div class="input-group center-content">
+  <%= form_tag(:controller => 'users', :action => 'new_repo') do %>
+    New repo name: <%= text_field_tag :name, nil, class: "form-input center-content" %>
+    <%= submit_tag "Create new repo!", class: "btn center-content form-button-align" %>
+  <% end %>
+</div>
+
+<h3 class="card-header center-content pr-alignment-style">Your Repositories: <%= @repos.count %></h3>
+<div class="center-content">
+  <% @repos.each do |repo| %>
+  <div class="card col-3">
+    <h3 class="card-header"><%= link_to repo[:name].titleize, repo[:html_url], target: "_blank" %></h3>
+      <div class="card-body">
+          <p><%= repo[:description] %></p>
+      </div>
+  </div>
+  <% end %>
+</div>
+</div>
