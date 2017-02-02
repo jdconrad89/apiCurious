@@ -10,18 +10,15 @@ class SessionsController < ApplicationController
     user = User.find_or_create_by(uid: auth["id"])
     user.username = auth["login"]
     user.uid = auth["id"]
-    user.avatar = auth["avatar_url"]
-    user.url = auth["html_url"]
-    user.followers = auth["followers"]
-    user.following = auth["following"]
-    user.repo = auth["repos_url"]
     user.token = token
-    if user.save
-      session[:user_id] = user.id
-      redirect_to dashboard_index_path
-    else
-      redirect_to root_path
-    end
+    user.save
+    session[:user_id] = user.id
+    redirect_to dashboard_index_path
+  end
+
+  def destory
+    session.clear
+    redirect_to root_path, flash: { success: "You have successfully signed out."}
   end
 
 end
