@@ -11,4 +11,12 @@ class UsersController < ApplicationController
     user.create_repo(params["name"])
     redirect_to repos_path
   end
+
+  def commits
+    user = User.find_by(uid: current_user.uid)
+    @commits = user.commits(user.username)
+    @commits.second.
+
+  end
+
 end

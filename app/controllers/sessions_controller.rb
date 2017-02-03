@@ -12,11 +12,12 @@ class SessionsController < ApplicationController
     user.uid = auth["id"]
     user.token = token
     user.save
+    
     session[:user_id] = user.id
     redirect_to dashboard_index_path
   end
 
-  def destory
+  def destroy
     session.clear
     redirect_to root_path, flash: { success: "You have successfully signed out."}
   end

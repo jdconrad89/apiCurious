@@ -1,0 +1,13 @@
+<h3 class="card-header center-content pr-alignment-style">Your Repositories:</h3>
+<div class="center-content">
+  <% @commits.second.each do |commit| %>
+  <div class="card col-3">
+    <% link_to commit[:repo][:name], commit[:author][:url][] %>
+    <%= commit[:author][:name] %>
+    <%= commit[:author][:message] %>
+      <div class="card-body">
+
+      </div>
+  </div>
+  <% end %>
+</div>

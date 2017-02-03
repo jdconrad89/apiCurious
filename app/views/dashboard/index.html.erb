@@ -4,3 +4,4 @@
 <h4> Number of followers: <%=current_user.followers_count %>
 <h4> Number of people following: <%=current_user.following_count %>
 <h4> <%= link_to "View Repo", repos_path %>
+<h4> <%= link_to "Log Out", auth_github_logout_path  %>

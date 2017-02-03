@@ -1,5 +1,7 @@
 class GithubRepo
-  attr_reader :name, :full_name, :description
+  attr_reader :name,
+              :full_name,
+              :description
 
   def initialize(attributes = {})
     @name = attributes[:name]

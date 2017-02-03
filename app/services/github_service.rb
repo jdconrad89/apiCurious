@@ -32,4 +32,13 @@ class GithubService
     response = @conn.get("/user/repos")
     all_repos = JSON.parse(response.body, symbolize_names: true)
   end
+
+  def find_commits(username)
+    find_repos.map do |repo|
+      if repo[:owner][:login] == username
+        single_response = @conn.get("/repos/#{username}/#{repo[:name]}/events")
+        JSON.parse(single_response.body, symbolize_names: true)
+      end
+    end.compact
+  end
 end
